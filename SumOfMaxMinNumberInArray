@@ -1,0 +1,32 @@
+class Solution
+{
+   public:
+    int findSum(int A[], int N)
+    {
+        int sum=0;
+          int min,max;
+          if(N==1){
+              sum=A[0]+A[0];
+              return sum;
+          }
+          else{
+              if(A[0]>A[1]){
+                  max=A[0];
+                  min=A[1];
+              }
+              else{
+                  max=A[1];
+                  min=A[0];
+              }
+              for(int i=2;i<N;i++){
+                  if(A[i]>max)
+                   max=A[i];
+                  if(A[i]<min)
+                    min=A[i];
+              }
+              sum=min+max;
+              return sum;
+          }
+    }
+
+};
