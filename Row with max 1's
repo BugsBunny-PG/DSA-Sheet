@@ -1,0 +1,39 @@
+/*Given a boolean 2D array of n x m dimensions where each row is sorted. Find the 0-based index of the first row that has the maximum number of 1's.
+Input: 
+N = 4 , M = 4
+Arr[][] = {{0, 1, 1, 1},
+           {0, 0, 1, 1},
+           {1, 1, 1, 1},
+           {0, 0, 0, 0}}
+Output: 2
+Explanation: Row 2 contains 4 1's (0-based
+indexing)
+*/	
+  
+  int rowWithMax1s(vector<vector<int> > arr, int n, int m) {
+	    map<int,int> mp;
+	    for(int i=0;i<n;i++){
+	         int count=0;
+	        for(int j=0;j<m;j++){
+	            if(arr[i][j]==1)
+	              count++;
+	        }
+	        mp[i]=count;
+	    }
+	    int key;
+	    int max_no=0;
+	    for(auto it:mp){
+	      max_no=max(max_no,it.second);
+	    }
+	    for(auto it:mp){
+	        if(it.second==max_no){
+	         key=it.first;
+	         break;
+	        }
+	    }
+	    if(max_no==0){
+	        return -1;
+	    }
+	    else{
+	     return key;   
+	    }
