@@ -9,3 +9,23 @@
         }
         return l1;
     }
+    
+    
+    
+     /* Should return data of middle node. If linked list is empty, then  -1*/
+    int getMiddle(Node *head)
+    {
+        Node* t=head;
+        int count=1,i=1;
+        while(t->next!=NULL){
+            count++;
+            t=t->next;
+        }
+        t=head;
+        int mid=count/2;
+        while(i<=mid){
+            t=t->next;
+            i++;
+        }
+        return t->data;
+    }
