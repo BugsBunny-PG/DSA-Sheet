@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+class solution{
+ public:
+ string reverseWords(string s) {
+        stack<string> st;
+        string str="",S="";
+        for(int i=0;i<s.length();i++){
+            if(s[i]==' '){
+                if(str.length()>0){
+                  st.push(str);
+              //  cout<<" hi "<<str;
+               // st.push(" ");
+                //i++;
+                str.clear();
+               }
+            }
+            else{
+               // cout<<s[i]<<endl;
+                str+=s[i];
+             }
+          }
+          if(str.length()>0)
+            st.push(str);
+        while(!st.empty()){
+           S+=st.top();
+           st.pop();
+           S+=" ";
+          }
+          S.pop_back();
+        return S;
+         // cout<<S<<endl;
+    }
+};
+int main(){
+	solution ob;
+	string str;
+	getline(cin,str);
+	cout<<str<<endl;
+	//string ans="";
+	cout<<ob.reverseWords(str);
+	//cout<<ans<<endl;
+}
