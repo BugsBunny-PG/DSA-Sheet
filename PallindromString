@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool check(string str){
+	int s=0;
+	int e=str.length()-1;
+	while(s<e){
+		if(str[s]==str[e]){
+			s++;
+			e--;
+		}
+		else{
+			return 0;
+		}
+	}
+	return 1;
+}
+int main(){
+	string str;
+	cin>>str;
+	bool res=check(str);
+	if(res==1)
+	cout<<"String is pallindrom\n";
+    else
+      cout<<"Not pallindrom\n";
+}
+//TC-->o(n)
+//SC-->o(1)
